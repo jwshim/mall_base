@@ -8,10 +8,10 @@ import mallbase.infra.AbstractEvent;
 public class DeliveryCanceled extends AbstractEvent {
 
     private Long id;
-    private Long order_id;
-    private Long product_id;
-    private String product_name;
-    private Long customer_id;
+    private Long orderId;
+    private Long productId;
+    private String productName;
+    private Long customerId;
     private String address;
     private String status;
 }

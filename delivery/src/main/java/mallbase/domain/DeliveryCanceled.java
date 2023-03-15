@@ -16,6 +16,7 @@ public class DeliveryCanceled extends AbstractEvent {
     private Long customerId;
     private String address;
     private String status;
+    private int qty;
 
     public DeliveryCanceled(DeliveryInfo aggregate) {
         super(aggregate);

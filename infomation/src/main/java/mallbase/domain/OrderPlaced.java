@@ -8,8 +8,8 @@ import mallbase.infra.AbstractEvent;
 public class OrderPlaced extends AbstractEvent {
 
     private Long id;
-    private String product_name;
-    private Long customer_id;
-    private Long product_id;
+    private String productName;
+    private Long customerId;
+    private Long productId;
     private Integer qty;
 }

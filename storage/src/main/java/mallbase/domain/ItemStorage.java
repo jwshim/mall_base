@@ -15,8 +15,6 @@ public class ItemStorage {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Long productId;
-
     private String productName;
 
     private Integer stock;
@@ -36,6 +34,15 @@ public class ItemStorage {
 
         */
 
+        System.out.println("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCccccalled");
+        System.out.println("Delivery data ProductID " + deliveryStarted.getProductId());
+         /** Example 2:  finding and process */
+        repository().findById(deliveryStarted.getProductId()).ifPresent(itemStorage->{     
+            System.out.println("=========================");
+            itemStorage.setStock(itemStorage.getStock() - deliveryStarted.getQty());
+            repository().save(itemStorage);
+         });
+        
         /** Example 2:  finding and process
         
         repository().findById(deliveryStarted.get???()).ifPresent(itemStorage->{
@@ -58,16 +65,15 @@ public class ItemStorage {
 
         */
 
-        /** Example 2:  finding and process
-        
-        repository().findById(deliveryCanceled.get???()).ifPresent(itemStorage->{
-            
-            itemStorage // do something
+        /** Example 2:  finding and process */
+        System.out.println("CCCCANCEL  --- " + deliveryCanceled.getProductId());
+
+        repository().findById(deliveryCanceled.getProductId()).ifPresent(itemStorage->{
+            System.out.println("qty " + deliveryCanceled.getQty());
+            itemStorage.setStock(itemStorage.getStock() + deliveryCanceled.getQty());
             repository().save(itemStorage);
-
-
          });
-        */
+        
 
     }
     //>>> Clean Arch / Port Method

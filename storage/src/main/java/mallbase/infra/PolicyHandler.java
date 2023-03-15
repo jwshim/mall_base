@@ -25,6 +25,7 @@ public class PolicyHandler {
     @StreamListener(
         value = KafkaProcessor.INPUT,
         condition = "headers['type']=='DeliveryStarted'"
+        //condition = "headers['type']=='DeliveryCanceled'"
     )
     public void wheneverDeliveryStarted_ItemCountIncrese(
         @Payload DeliveryStarted deliveryStarted
@@ -41,6 +42,7 @@ public class PolicyHandler {
     @StreamListener(
         value = KafkaProcessor.INPUT,
         condition = "headers['type']=='DeliveryCanceled'"
+        //condition = "headers['type']=='DeliveryStarted'"
     )
     public void wheneverDeliveryCanceled_ItemCountDecrese(
         @Payload DeliveryCanceled deliveryCanceled
